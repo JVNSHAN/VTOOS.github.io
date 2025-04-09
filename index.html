@@ -4,8 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VTOOS</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            position: relative;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 初始LOGO样式 */
+        .intro-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4rem;
+            opacity: 1;
+            animation: logoFade 0.5s ease-out 3s forwards;
+            color: #2c3e50;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+		
+		
+        /* 主内容容器 */
+        .center-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 600px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .container.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 多语言样式 */
+        .multi-lang p {
+            margin: 1.2rem 0;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .cn { 
+            font-family: 'Microsoft Yahei', 'PingFang SC', sans-serif;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .en { 
+            color: #444;
+            font-weight: 600;
+        }
+
+        .jp { 
+            font-family: 'Meiryo', 'Hiragino Sans', sans-serif;
+            color: #3a3a3a;
+        }
+
+        .kr { 
+            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+            color: #4a4a4a;
+            letter-spacing: -0.5px;
+        }
+
+        /* 动画定义 */
+        @keyframes logoFade {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -50%) scale(0.92); }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .intro-logo {
+                font-size: 3rem;
+            }
+            .container {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro-logo {
+                font-size: 2.2rem;
+                letter-spacing: 1px;
+            }
+            .multi-lang p {
+                font-size: 1rem;
+                margin: 1rem 0;
+            }
+            .container {
+                padding: 20px;
+                border-radius: 8px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <H3>数据疯狂更新中...</H3>
+    <h1 class="intro-logo">VTOOS</h1>
+    
+    <div class="center-wrapper">
+        <div class="container">
+            <div class="multi-lang">
+                <p class="en">System under intensive construction</p>
+                <p class="cn">数据正在疯狂建设中...</p>
+                <p class="jp">データシステム構築中（緊急作業進行中）</p>
+                <p class="kr">데이터 시스템 긴급 구축 진행 중</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.querySelector('.container').classList.add('active');
+            }, 2500);
+        });
+    </script>
 </body>
 </html>
